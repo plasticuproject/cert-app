@@ -1,0 +1,22 @@
+<!-- templates/tool.html-->
+{% extends 'base.html' %}
+{% block title %}Tool{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<form class="margin-l margin-t" method="POST" action="/certtool/tool/">
+  {% csrf_token %}
+  <h3 class="text-whitesmoke">{{ form.cert_name.label_tag }}</h3>
+  {{ form.cert_name }}
+  <button class="form-button button margin-b" type="submit">View Cert</button>
+</form>
+<div class="login-container text-c animated flipInX">
+  <form class="margin-t">
+    <div class="form-group">
+      <h1 class="text-whitesmoke">Hello {{ user.username }}</h1>
+      <a class="text-yellow" href="{% url 'change_password' %}">Change Password</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

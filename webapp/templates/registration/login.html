@@ -1,0 +1,31 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<div class="login-container text-c animated flipInX">
+  <div>
+    <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+  </div>
+  <h1 class="text-whitesmoke">Sign In</h1>
+  <br>
+  <div class="container-content">
+    <form class="margin-t" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Username" required="" {{ form.username }}
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" required="" {{ form.password }}
+      </div>
+        <button type="submit" class="form-button button-l margin-b">Sign In</button>
+        <a class="text-darkyellow" href="#"><small>Forgot your password?</small></a>
+        <p class="text-whitesmoke text-center"><small>Don't have an account?</small></p>
+        <a class="text-darkyellow" href="{% url 'signup' %}"><small>Register</small></a>
+    </form>
+      <p class="margin-t text-whitesmoke"><small> plasticuproject &copy; 2020</small> </p>
+  </div>
+</div>
+{% endblock %}

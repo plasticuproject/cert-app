@@ -1,0 +1,41 @@
+<!-- templates/tool.html-->
+{% extends 'base.html' %}
+{% block title %}Tool{% endblock %}
+{% block content %}
+<br>
+<div class="login-container text-c animated flipInX">
+  <h1 class="text-whitesmoke">{{ test }}</h1>
+  <div class="container-content">
+    <form class="margin-t" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <div class="text-l">
+          <text class="text-darkyellow">{{ form.date_added.label_tag }}</text>
+          {{ form.date_added }}
+          <br>
+          <text class="text-darkyellow">{{ form.applied.label_tag }}</text>
+          {{ form.applied }}
+          <br>
+          <text class="text-darkyellow">{{ form.date_applied.label_tag }}</text>
+          {{ form.date_applied }}
+          <br>
+          <text class="text-darkyellow">{{ form.banned.label_tag }}</text>
+          {{ form.banned }}
+          <br>
+          <text class="text-darkyellow">{{ form.banned_date.label_tag }}</text>
+          {{ form.banned_date }}
+          <br>
+          <text class="text-darkyellow">{{ form.required_activation.label_tag }}</text>
+          {{ form.required_activation }}
+          <br>
+          <text class="text-darkyellow">{{ form.currently_used.label_tag }}</text>
+          {{ form.currently_used }}
+          <br>
+        </div>
+        <br>
+        <button class="form-button button-l" name="submit"type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

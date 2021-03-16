@@ -1,0 +1,59 @@
+<!-- templates/registration/signup.html -->
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<div class="login-container text-c animated flipInX">
+  <div>
+    <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+  </div>
+  <h1 class="text-whitesmoke">Register</h1>
+  <br>
+  <div class="container-content">
+    <form class="margin-t" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Username" required="" {{ form.username }}
+        {% for error in form.username.errors %}
+          <div style="font-size: small">
+            <p style="color: red">{{ error }}</p>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Email Address" required="" {{ form.email }}
+        {% for error in form.email.errors %}
+          <div style="font-size: small">
+            <p style="color: red">{{ error }}</p>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.password1 }}
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Confirm Password" required="" {{ form.password2 }}
+        {% for error in form.password1.errors %}
+          <div style="font-size: small">
+            <p style="color: red">{{ error }}</p>
+          </div>
+        {% endfor %}
+        {% for error in form.password2.errors %}
+          <div style="font-size: small">
+            <p style="color: red">{{ error }}</p>
+          </div>
+        {% endfor %}
+      </div>
+        <button type="submit" class="form-button button-l margin-b">Register</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% block js %}
+  {{ block.super }}
+  {{ form.media }}
+{% endblock %}
+{% endblock %}
+
